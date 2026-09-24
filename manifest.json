@@ -1,6 +1,6 @@
 {
   "name": "PackPulse Pack",
-  "version": "2026.09.24-192148",
+  "version": "2026.09.24-193434",
   "minecraftVersion": "1.21.1",
   "loader": "neoforge",
   "neoForgeVersion": "21.1.228",
@@ -10,17 +10,17 @@
     {
       "path": "resourcepacks/DPRNQ-Sound-Pack.zip",
       "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/resourcepacks/DPRNQ-Sound-Pack.zip",
-      "sha256": "8ccf0224d4c3fdd4ad73e9f6032744434d9886dbbc0acd1f0b6b30770fa9492d"
+      "sha256": "ec537e35f446f33791461568f345a8a02bb92e0ffbf1d74a228142bca7d3fe4a"
     },
     {
       "path": "resourcepacks/Eddie-Murphy-Donkey-Sounds.zip",
       "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/resourcepacks/Eddie-Murphy-Donkey-Sounds.zip",
-      "sha256": "f44a8b939f5ca02fbc430cd1320fafd3074389939290c6b32212becd0d7314e2"
+      "sha256": "1f034feaee2baba261f97361eb07009759981a148100d690f193f888d6cd4363"
     },
     {
       "path": "resourcepacks/Invisible Armor Model - 75.0.zip",
       "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/resourcepacks/Invisible%20Armor%20Model%20-%2075.0.zip",
-      "sha256": "15718b73bf5e0f0b3f248a8778939514f67416d8adf328ef52f82a79e2a908e9"
+      "sha256": "42833516695f9fe29f7fb7718e75cdba5cbd1899af66b840ca95f2ba0945bd1c"
     },
     {
       "path": "uncompressed-packs/DPRNQ-Sound-Pack/29.json",
@@ -151,6 +151,11 @@
       "path": "uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/mob/pig/say3.ogg",
       "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/mob/pig/say3.ogg",
       "sha256": "3aef75fc393480b50dad9fb0ab86a89e3730f624096efe249103ceacd14ad096"
+    },
+    {
+      "path": "uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/mob/villager/deleteanytime.txt",
+      "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/mob/villager/deleteanytime.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     {
       "path": "uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/random/anvil_break.ogg",
