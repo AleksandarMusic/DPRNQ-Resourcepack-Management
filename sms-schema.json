@@ -4,19 +4,25 @@
     {
       "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/resourcepacks/DPRNQ-Sound-Pack.zip",
       "name": "DPRNQ-Sound-Pack",
-      "version": "94a2d3876fa17484e38408a21f3a605836986d07",
+      "version": "2032dffb1894f348ba67f49d349f3dcf6fcdeb04",
       "type": "resourcepack"
     },
     {
       "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/resourcepacks/Eddie-Murphy-Donkey-Sounds.zip",
       "name": "Eddie-Murphy-Donkey-Sounds",
-      "version": "94a2d3876fa17484e38408a21f3a605836986d07",
+      "version": "2032dffb1894f348ba67f49d349f3dcf6fcdeb04",
       "type": "resourcepack"
     },
     {
       "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/resourcepacks/Invisible Armor Model.zip",
       "name": "Invisible Armor Model",
-      "version": "94a2d3876fa17484e38408a21f3a605836986d07",
+      "version": "2032dffb1894f348ba67f49d349f3dcf6fcdeb04",
+      "type": "resourcepack"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/resourcepacks/Invisible_Armor_Model.zip",
+      "name": "Invisible Armor Model",
+      "version": "2032dffb1894f348ba67f49d349f3dcf6fcdeb04",
       "type": "resourcepack"
     }
   ]
