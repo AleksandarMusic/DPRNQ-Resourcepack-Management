@@ -1,0 +1,287 @@
+{
+  "name": "PackPulse Pack",
+  "version": "2026.09.24-191908",
+  "minecraftVersion": "1.21.1",
+  "loader": "neoforge",
+  "neoForgeVersion": "21.1.228",
+  "versionId": "packpulse-pack",
+  "profileName": "PackPulse Pack",
+  "files": [
+    {
+      "path": "resourcepacks/DPRNQ-Sound-Pack.zip",
+      "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/resourcepacks/DPRNQ-Sound-Pack.zip",
+      "sha256": "31f73af9a6792587caba3f6e638661d87c1b581fcbee920d872b549fd52635fa"
+    },
+    {
+      "path": "resourcepacks/Eddie-Murphy-Donkey-Sounds.zip",
+      "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/resourcepacks/Eddie-Murphy-Donkey-Sounds.zip",
+      "sha256": "0cf1b0879e2c4968e84db30fcc2559c3c2e1068a1ad3633dbd35f1a278846f2f"
+    },
+    {
+      "path": "resourcepacks/Invisible Armor Model - 75.0.zip",
+      "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/resourcepacks/Invisible%20Armor%20Model%20-%2075.0.zip",
+      "sha256": "a478335776ccab49f9aaefac41afc43b3d7c99042fed123e8e9e4432c78a1e3e"
+    },
+    {
+      "path": "uncompressed-packs/DPRNQ-Sound-Pack/29.json",
+      "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/uncompressed-packs/DPRNQ-Sound-Pack/29.json",
+      "sha256": "f19581baa2058ebb39725a380043fefe33aef8c5292498e6c8d962e7c52e7859"
+    },
+    {
+      "path": "uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/damage/fallsmall-old.ogg",
+      "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/damage/fallsmall-old.ogg",
+      "sha256": "2e28dd7b330ad23423e759a221144702af740a400182e85c0371fbf0cf300316"
+    },
+    {
+      "path": "uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/damage/hit1-old.ogg",
+      "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/damage/hit1-old.ogg",
+      "sha256": "32645e76ef2c2240a2ae1f14d408106aab843cd07c61013c95eea9e48166f24b"
+    },
+    {
+      "path": "uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/damage/hit1.ogg",
+      "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/damage/hit1.ogg",
+      "sha256": "9028a2a2aedc24deb1b3dd87b828806c56f439b0ec3f525e41dba3f841f7e3f6"
+    },
+    {
+      "path": "uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/damage/hit2.ogg",
+      "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/damage/hit2.ogg",
+      "sha256": "d1c6f0fecfbd5e0c1ae2cc4afcf17618321cdb551fc73d88ad0f263b58397186"
+    },
+    {
+      "path": "uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/damage/hit3.ogg",
+      "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/damage/hit3.ogg",
+      "sha256": "e78624d7d765cbc56918e7f44f6f2e26a548a5128fde8b4107e0d2ebc60a5039"
+    },
+    {
+      "path": "uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/entity/bobber/retrieve1.ogg",
+      "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/entity/bobber/retrieve1.ogg",
+      "sha256": "ad51bea0a665c1a2aa94a1603add291130e78c4589a9f84152d22e00d45bad07"
+    },
+    {
+      "path": "uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/entity/bobber/retrieve2.ogg",
+      "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/entity/bobber/retrieve2.ogg",
+      "sha256": "d9562d8f1c1f9211fd690b513a2a60db2d888d5336282717cfd6946a24e79579"
+    },
+    {
+      "path": "uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/entity/bobber/retrieve3.ogg",
+      "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/entity/bobber/retrieve3.ogg",
+      "sha256": "49ba15dd5828204df25c051d671149a76969bc7da42ddeebdf593bb8e7ddf6ca"
+    },
+    {
+      "path": "uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/mob/happy_ghast/ambient1.ogg",
+      "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/mob/happy_ghast/ambient1.ogg",
+      "sha256": "600a86489fc6b95726f99fd3bb5354856fc7e995f309d37a05daa4ff24f1f964"
+    },
+    {
+      "path": "uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/mob/happy_ghast/ambient10.ogg",
+      "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/mob/happy_ghast/ambient10.ogg",
+      "sha256": "e3d6bec71452b336f7dc7715b4c1a9672cc9276a8d4c853032716056a23ab46f"
+    },
+    {
+      "path": "uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/mob/happy_ghast/ambient11.ogg",
+      "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/mob/happy_ghast/ambient11.ogg",
+      "sha256": "e3d6bec71452b336f7dc7715b4c1a9672cc9276a8d4c853032716056a23ab46f"
+    },
+    {
+      "path": "uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/mob/happy_ghast/ambient12.ogg",
+      "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/mob/happy_ghast/ambient12.ogg",
+      "sha256": "786320d8446f5a28e0716f2e45ac793d69420f9013a545506002af0b13130138"
+    },
+    {
+      "path": "uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/mob/happy_ghast/ambient13.ogg",
+      "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/mob/happy_ghast/ambient13.ogg",
+      "sha256": "786320d8446f5a28e0716f2e45ac793d69420f9013a545506002af0b13130138"
+    },
+    {
+      "path": "uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/mob/happy_ghast/ambient14.ogg",
+      "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/mob/happy_ghast/ambient14.ogg",
+      "sha256": "786320d8446f5a28e0716f2e45ac793d69420f9013a545506002af0b13130138"
+    },
+    {
+      "path": "uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/mob/happy_ghast/ambient2.ogg",
+      "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/mob/happy_ghast/ambient2.ogg",
+      "sha256": "e3d6bec71452b336f7dc7715b4c1a9672cc9276a8d4c853032716056a23ab46f"
+    },
+    {
+      "path": "uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/mob/happy_ghast/ambient3.ogg",
+      "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/mob/happy_ghast/ambient3.ogg",
+      "sha256": "786320d8446f5a28e0716f2e45ac793d69420f9013a545506002af0b13130138"
+    },
+    {
+      "path": "uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/mob/happy_ghast/ambient4.ogg",
+      "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/mob/happy_ghast/ambient4.ogg",
+      "sha256": "600a86489fc6b95726f99fd3bb5354856fc7e995f309d37a05daa4ff24f1f964"
+    },
+    {
+      "path": "uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/mob/happy_ghast/ambient5.ogg",
+      "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/mob/happy_ghast/ambient5.ogg",
+      "sha256": "600a86489fc6b95726f99fd3bb5354856fc7e995f309d37a05daa4ff24f1f964"
+    },
+    {
+      "path": "uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/mob/happy_ghast/ambient6.ogg",
+      "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/mob/happy_ghast/ambient6.ogg",
+      "sha256": "600a86489fc6b95726f99fd3bb5354856fc7e995f309d37a05daa4ff24f1f964"
+    },
+    {
+      "path": "uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/mob/happy_ghast/ambient7.ogg",
+      "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/mob/happy_ghast/ambient7.ogg",
+      "sha256": "600a86489fc6b95726f99fd3bb5354856fc7e995f309d37a05daa4ff24f1f964"
+    },
+    {
+      "path": "uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/mob/happy_ghast/ambient8.ogg",
+      "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/mob/happy_ghast/ambient8.ogg",
+      "sha256": "e3d6bec71452b336f7dc7715b4c1a9672cc9276a8d4c853032716056a23ab46f"
+    },
+    {
+      "path": "uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/mob/happy_ghast/ambient9.ogg",
+      "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/mob/happy_ghast/ambient9.ogg",
+      "sha256": "e3d6bec71452b336f7dc7715b4c1a9672cc9276a8d4c853032716056a23ab46f"
+    },
+    {
+      "path": "uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/mob/pig/say1.ogg",
+      "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/mob/pig/say1.ogg",
+      "sha256": "6788baeead3ddd4f33173b349a839e1f31b9a194fa4d19a178871ff625079cde"
+    },
+    {
+      "path": "uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/mob/pig/say2.ogg",
+      "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/mob/pig/say2.ogg",
+      "sha256": "8cd0cd74f71e9b0fd3428a66ff536c05b51896f7a74843d9287f8224cb823564"
+    },
+    {
+      "path": "uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/mob/pig/say3.ogg",
+      "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/mob/pig/say3.ogg",
+      "sha256": "3aef75fc393480b50dad9fb0ab86a89e3730f624096efe249103ceacd14ad096"
+    },
+    {
+      "path": "uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/mob/villager/deletethiswhenever.txt",
+      "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/mob/villager/deletethiswhenever.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/random/anvil_break.ogg",
+      "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/random/anvil_break.ogg",
+      "sha256": "fa1412b4e1796415b94ba783705a7230ec3af380393b5ebc9e527098087acb79"
+    },
+    {
+      "path": "uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/random/fuse.ogg",
+      "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/random/fuse.ogg",
+      "sha256": "2d56b8134c597a7c2db8ff2dc3e406da1cb846be8259a6411bcbb4ff97c4e581"
+    },
+    {
+      "path": "uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/random/splash.ogg",
+      "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/random/splash.ogg",
+      "sha256": "907241a4b218dc749372fc247d8b57d4c8ed54391ce2d42459b8d034644a0b86"
+    },
+    {
+      "path": "uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/records/11.ogg",
+      "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/uncompressed-packs/DPRNQ-Sound-Pack/assets/minecraft/sounds/records/11.ogg",
+      "sha256": "ed317767671bb0ca994e7ccc68d799ce8973e30b700a2dceccd74a920a4f4a35"
+    },
+    {
+      "path": "uncompressed-packs/DPRNQ-Sound-Pack/pack.mcmeta",
+      "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/uncompressed-packs/DPRNQ-Sound-Pack/pack.mcmeta",
+      "sha256": "2404c10afbfec870574f04ccba369d2aa2cce0f17d0683c20af0a2f19f6156cc"
+    },
+    {
+      "path": "uncompressed-packs/DPRNQ-Sound-Pack/pack.png",
+      "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/uncompressed-packs/DPRNQ-Sound-Pack/pack.png",
+      "sha256": "5e28df4adab715c9e5d15bd7f250cf80ca553d2b501008ae43f25dfde07b3a88"
+    },
+    {
+      "path": "uncompressed-packs/Eddie-Murphy-Donkey-Sounds/assets/minecraft/sounds/mob/horse/donkey/death.ogg",
+      "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/uncompressed-packs/Eddie-Murphy-Donkey-Sounds/assets/minecraft/sounds/mob/horse/donkey/death.ogg",
+      "sha256": "61cf4c670a721f2d18ff524b3a3b032a954b537cc88930987fc373882b4baf79"
+    },
+    {
+      "path": "uncompressed-packs/Eddie-Murphy-Donkey-Sounds/assets/minecraft/sounds/mob/horse/donkey/hit1.ogg",
+      "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/uncompressed-packs/Eddie-Murphy-Donkey-Sounds/assets/minecraft/sounds/mob/horse/donkey/hit1.ogg",
+      "sha256": "5e48ead415d6371dbdc1a3f7240b31198ba362fbf4421e682c722c72a6e98a7e"
+    },
+    {
+      "path": "uncompressed-packs/Eddie-Murphy-Donkey-Sounds/assets/minecraft/sounds/mob/horse/donkey/hit2.ogg",
+      "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/uncompressed-packs/Eddie-Murphy-Donkey-Sounds/assets/minecraft/sounds/mob/horse/donkey/hit2.ogg",
+      "sha256": "dc9a7383be79e15c37bacb1ba510c8c80e0e96845654a290ba2403d2495e5378"
+    },
+    {
+      "path": "uncompressed-packs/Eddie-Murphy-Donkey-Sounds/assets/minecraft/sounds/mob/horse/donkey/hit3.ogg",
+      "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/uncompressed-packs/Eddie-Murphy-Donkey-Sounds/assets/minecraft/sounds/mob/horse/donkey/hit3.ogg",
+      "sha256": "4ede6111df5cd065f19a497fde8863e622fafceed3ffb79e2fe5b2981d33c6fd"
+    },
+    {
+      "path": "uncompressed-packs/Eddie-Murphy-Donkey-Sounds/assets/minecraft/sounds/mob/horse/donkey/idle1.ogg",
+      "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/uncompressed-packs/Eddie-Murphy-Donkey-Sounds/assets/minecraft/sounds/mob/horse/donkey/idle1.ogg",
+      "sha256": "54a6065afd3a3be82e13c67a5cc1304348cf8a14fdb8c9e736d3acce5d25eac2"
+    },
+    {
+      "path": "uncompressed-packs/Eddie-Murphy-Donkey-Sounds/assets/minecraft/sounds/mob/horse/donkey/idle2.ogg",
+      "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/uncompressed-packs/Eddie-Murphy-Donkey-Sounds/assets/minecraft/sounds/mob/horse/donkey/idle2.ogg",
+      "sha256": "1c50e1466b75fd84333fa072d05d2bef0971baa0d6b10b8875415640b9f9cb5f"
+    },
+    {
+      "path": "uncompressed-packs/Eddie-Murphy-Donkey-Sounds/assets/minecraft/sounds/mob/horse/donkey/idle3.ogg",
+      "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/uncompressed-packs/Eddie-Murphy-Donkey-Sounds/assets/minecraft/sounds/mob/horse/donkey/idle3.ogg",
+      "sha256": "311b9230529e21fe23434e6ef1b406a4b41d4c75c80fe051f515c33d61f21757"
+    },
+    {
+      "path": "uncompressed-packs/Eddie-Murphy-Donkey-Sounds/pack.mcmeta",
+      "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/uncompressed-packs/Eddie-Murphy-Donkey-Sounds/pack.mcmeta",
+      "sha256": "b993ac269b3a5e4e377d909cce6d3c5a235d356a0b8a1fee4942faa90f418fd0"
+    },
+    {
+      "path": "uncompressed-packs/Eddie-Murphy-Donkey-Sounds/pack.png",
+      "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/uncompressed-packs/Eddie-Murphy-Donkey-Sounds/pack.png",
+      "sha256": "75f08b2675a145a6f67a6e24b75299cb4d328fa73107bf63dceaecc4cb872dff"
+    },
+    {
+      "path": "uncompressed-packs/Invisible Armor Model - 75.0/LICENSE",
+      "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/uncompressed-packs/Invisible%20Armor%20Model%20-%2075.0/LICENSE",
+      "sha256": "ed8c6b5c9f515738a803cc1aa70fe22dc62fcf72f3613cba578b71f9a1500a33"
+    },
+    {
+      "path": "uncompressed-packs/Invisible Armor Model - 75.0/assets/minecraft/equipment/chainmail.json",
+      "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/uncompressed-packs/Invisible%20Armor%20Model%20-%2075.0/assets/minecraft/equipment/chainmail.json",
+      "sha256": "d29aa4e9e39200f330bf56209201b1de563b8115b22bbf37123f0ceb19d28cdf"
+    },
+    {
+      "path": "uncompressed-packs/Invisible Armor Model - 75.0/assets/minecraft/equipment/copper.json",
+      "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/uncompressed-packs/Invisible%20Armor%20Model%20-%2075.0/assets/minecraft/equipment/copper.json",
+      "sha256": "3a21310f05cb0f249f2c666236ee60c6fc69b8bd5564f27198fde79c52c57383"
+    },
+    {
+      "path": "uncompressed-packs/Invisible Armor Model - 75.0/assets/minecraft/equipment/diamond.json",
+      "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/uncompressed-packs/Invisible%20Armor%20Model%20-%2075.0/assets/minecraft/equipment/diamond.json",
+      "sha256": "8a848a21b58ddb1425dc45f98f46879b8717889105babfb5e5eda8ed07145f6e"
+    },
+    {
+      "path": "uncompressed-packs/Invisible Armor Model - 75.0/assets/minecraft/equipment/gold.json",
+      "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/uncompressed-packs/Invisible%20Armor%20Model%20-%2075.0/assets/minecraft/equipment/gold.json",
+      "sha256": "01ce073e5dd6220e0c3c3fc273d73d48e741438cebbd0df608d83f691b1b41ac"
+    },
+    {
+      "path": "uncompressed-packs/Invisible Armor Model - 75.0/assets/minecraft/equipment/iron.json",
+      "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/uncompressed-packs/Invisible%20Armor%20Model%20-%2075.0/assets/minecraft/equipment/iron.json",
+      "sha256": "9cd1d37c267672a5a66bb898652ddc1f9339545b43056cb5798ec93ea1367598"
+    },
+    {
+      "path": "uncompressed-packs/Invisible Armor Model - 75.0/assets/minecraft/equipment/leather.json",
+      "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/uncompressed-packs/Invisible%20Armor%20Model%20-%2075.0/assets/minecraft/equipment/leather.json",
+      "sha256": "004c34481be0536a910d57eaeae4a5050fa5390680255536d1bce0b2ee3df46f"
+    },
+    {
+      "path": "uncompressed-packs/Invisible Armor Model - 75.0/assets/minecraft/equipment/netherite.json",
+      "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/uncompressed-packs/Invisible%20Armor%20Model%20-%2075.0/assets/minecraft/equipment/netherite.json",
+      "sha256": "4ae7c6571bad4cae1ac06531df05d4917d58afd1455fe889917aa7f140c0487b"
+    },
+    {
+      "path": "uncompressed-packs/Invisible Armor Model - 75.0/pack.mcmeta",
+      "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/uncompressed-packs/Invisible%20Armor%20Model%20-%2075.0/pack.mcmeta",
+      "sha256": "e50a73619f5637c39127fd818435eb644c6d06eaf55236872fd64015d24ef32e"
+    },
+    {
+      "path": "uncompressed-packs/Invisible Armor Model - 75.0/pack.png",
+      "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/uncompressed-packs/Invisible%20Armor%20Model%20-%2075.0/pack.png",
+      "sha256": "f12c6ee2d21d8e32e9fe1028b3663da4f31a7b133d90a625d8afdd200006df19"
+    }
+  ],
+  "delete": []
+}
