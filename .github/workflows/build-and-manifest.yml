@@ -6,6 +6,9 @@ on:
     paths:
       - 'uncompressed-packs/**'
 
+permissions:
+  contents: write
+
 jobs:
   build-and-manifest:
     runs-on: ubuntu-latest
