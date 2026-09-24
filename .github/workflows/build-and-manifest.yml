@@ -27,7 +27,7 @@ jobs:
             echo "Zipping $pack_name..."
             # Change into the pack directory so the zip root contains
             # pack.mcmeta and assets/ directly (no parent folder)
-            (cd "$pack_dir" && zip -r "../../resourcepacks/$pack_name.zip" .)
+            (cd "$pack_dir" && zip -FSr "../../resourcepacks/$pack_name.zip" .)
           done
           echo "Generated zips:"
           ls -la resourcepacks/
