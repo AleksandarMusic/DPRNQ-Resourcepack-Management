@@ -3,8 +3,6 @@ name: Build Packs and Generate SMS Schema
 on:
   push:
     branches: [ main ]
-    paths:
-      - 'uncompressed-packs/**'
 
 permissions:
   contents: write
@@ -17,23 +15,32 @@ jobs:
       # 1. Check out the repository
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      # 2. Zip each uncompressed pack into the resourcepacks folder
+      # 2. Detect whether the uncompressed packs changed
+      - name: Detect changes in uncompressed-packs
+        uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            packs:
+              - 'uncompressed-packs/**'
+
+      # 3. Zip uncompressed packs (only if packs changed)
       - name: Zip uncompressed packs
+        if: steps.filter.outputs.packs == 'true'
         run: |
           mkdir -p resourcepacks
           for pack_dir in uncompressed-packs/*/; do
             pack_name=$(basename "$pack_dir")
             echo "Zipping $pack_name..."
-            # Change into the pack directory so the zip root contains
-            # pack.mcmeta and assets/ directly (no parent folder).
-            # -FS removes stale entries that no longer exist in the source.
             (cd "$pack_dir" && zip -FSr "../../resourcepacks/$pack_name.zip" .)
           done
           echo "Generated zips:"
           ls -la resourcepacks/
 
-      # 3. Generate the Simple Mod Sync schema
+      # 4. Generate the Simple Mod Sync schema (always runs)
       - name: Generate SMS schema
         run: |
           python3 << 'EOF'
@@ -65,11 +72,11 @@ jobs:
           print(f"Generated schema with {len(packs)} pack(s), versioned at commit {SHA[:7]}.")
           EOF
 
-      # 4. Commit the new zips and schema back to the repository
+      # 5. Commit the new zips and schema back to the repository
       - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add resourcepacks/ sms-schema.json
+          git add -A resourcepacks/ sms-schema.json
           git commit -m "Auto-build packs and update SMS schema" || echo "No changes to commit"
           git push
