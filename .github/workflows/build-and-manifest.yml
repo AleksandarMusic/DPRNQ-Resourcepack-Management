@@ -1,0 +1,58 @@
+name: Build Packs and Generate Manifest
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'uncompressed-packs/**'
+
+jobs:
+  build-and-manifest:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Check out the repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. Zip each uncompressed pack into the resourcepacks folder
+      - name: Zip uncompressed packs
+        run: |
+          mkdir -p resourcepacks
+          for pack_dir in uncompressed-packs/*/; do
+            pack_name=$(basename "$pack_dir")
+            echo "Zipping $pack_name..."
+            # Change into the pack directory so the zip root contains
+            # pack.mcmeta and assets/ directly (no parent folder)
+            (cd "$pack_dir" && zip -r "../../resourcepacks/$pack_name.zip" .)
+          done
+          echo "Generated zips:"
+          ls -la resourcepacks/
+
+      # 3. Set up Python for the manifest generator
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      # 4. Download the PackPulse manifest generator
+      - name: Download manifest generator
+        run: |
+          curl -fsSL -o generate_manifest.py https://raw.githubusercontent.com/Kamilhik/PackPulseMod/main/scripts/generate_manifest.py
+
+      # 5. Generate the manifest
+      - name: Generate manifest
+        run: |
+          python generate_manifest.py \
+            --pack-root . \
+            --base-url "https://raw.githubusercontent.com/${{ github.repository }}/main" \
+            --output manifest.json
+
+      # 6. Commit the new zips and manifest back to the repository
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add resourcepacks/ manifest.json .manifest-state.json
+          git commit -m "Auto-build packs and update manifest" || echo "No changes to commit"
+          git push
