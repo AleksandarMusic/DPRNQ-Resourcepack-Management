@@ -49,7 +49,9 @@ jobs:
           python generate_manifest.py \
             --pack-root . \
             --base-url "https://raw.githubusercontent.com/${{ github.repository }}/main" \
-            --output manifest.json
+            --output manifest.json \
+            --minecraft-version "26.2" \
+            --loader "fabric"
 
       # 6. Commit the new zips and manifest back to the repository
       - name: Commit and push
