@@ -1,0 +1,75 @@
+name: Build Packs and Generate SMS Schema
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'uncompressed-packs/**'
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-schema:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Check out the repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. Zip each uncompressed pack into the resourcepacks folder
+      - name: Zip uncompressed packs
+        run: |
+          mkdir -p resourcepacks
+          for pack_dir in uncompressed-packs/*/; do
+            pack_name=$(basename "$pack_dir")
+            echo "Zipping $pack_name..."
+            # Change into the pack directory so the zip root contains
+            # pack.mcmeta and assets/ directly (no parent folder).
+            # -FS removes stale entries that no longer exist in the source.
+            (cd "$pack_dir" && zip -FSr "../../resourcepacks/$pack_name.zip" .)
+          done
+          echo "Generated zips:"
+          ls -la resourcepacks/
+
+      # 3. Generate the Simple Mod Sync schema
+      - name: Generate SMS schema
+        run: |
+          python3 << 'EOF'
+          import json
+          import os
+
+          REPO = "${{ github.repository }}"
+          SHA  = "${{ github.sha }}"
+
+          packs = []
+          for filename in sorted(os.listdir('resourcepacks')):
+              if filename.endswith('.zip'):
+                  pack_name = filename[:-4]  # strip the .zip extension
+                  packs.append({
+                      "url": f"https://raw.githubusercontent.com/{REPO}/main/resourcepacks/{filename}",
+                      "name": pack_name,
+                      "version": SHA,
+                      "type": "resourcepack"
+                  })
+
+          schema = {
+              "sync_version": 3,
+              "sync": packs
+          }
+
+          with open('sms-schema.json', 'w') as f:
+              json.dump(schema, f, indent=2)
+
+          print(f"Generated schema with {len(packs)} pack(s), versioned at commit {SHA[:7]}.")
+          EOF
+
+      # 4. Commit the new zips and schema back to the repository
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add resourcepacks/ sms-schema.json
+          git commit -m "Auto-build packs and update SMS schema" || echo "No changes to commit"
+          git push
