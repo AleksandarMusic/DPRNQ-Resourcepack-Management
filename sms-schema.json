@@ -8,10 +8,10 @@
       "version": "3.0.1+26.2"
     },
     {
-      "name": "distanthorizons",
+      "name": "DistantHorizons",
       "type": "mod",
       "url": "https://cdn.modrinth.com/data/uCdwusMi/versions/9NoftEde/DistantHorizons-3.3.2-26.2-fabric-neoforge.jar",
-      "version": "3.3.2-26.2"
+      "version": "3.3.2-26.2-fabric-neoforge"
     },
     {
       "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/resourcepacks/DPRNQ-Sound-Pack.zip",
@@ -38,10 +38,10 @@
       "type": "resourcepack"
     },
     {
-      "name": "sodium",
+      "name": "sodium-fabric",
       "type": "mod",
       "url": "https://cdn.modrinth.com/data/AANobbMI/versions/xJZxADzI/sodium-fabric-0.9.2%2Bmc26.2.jar",
-      "version": "mc26.2-0.9.2-fabric"
+      "version": "0.9.2+mc26.2"
     }
   ]
 }
