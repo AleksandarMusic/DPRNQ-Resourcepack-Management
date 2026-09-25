@@ -19,7 +19,7 @@ jobs:
       - name: Resolve mod versions from Modrinth
         run: |
           python3 << 'EOF'
-          import json, urllib.request, urllib.parse
+          import json, urllib.request, urllib.parse, re
 
           with open('mods-config.json') as f:
               config = json.load(f)
@@ -33,6 +33,35 @@ jobs:
               )
               with urllib.request.urlopen(req, timeout=30) as resp:
                   return json.load(resp)
+
+          def split_filename(filename, version_number):
+              """
+              Split a Modrinth filename into (name, version) such that
+              f"{name}-{version}" reproduces the original filename stem.
+              """
+              for ext in ('.jar', '.zip'):
+                  if filename.endswith(ext):
+                      stem = filename[:-len(ext)]
+                      break
+              else:
+                  stem = filename
+
+              # Preferred: split where version_number appears
+              idx = stem.find(version_number)
+              if idx > 0:
+                  name = stem[:idx].rstrip('-_ .')
+                  version = stem[idx:]
+                  return name, version
+
+              # Fallback: split at first digit
+              match = re.search(r'\d', stem)
+              if match and match.start() > 0:
+                  name = stem[:match.start()].rstrip('-_ .')
+                  version = stem[match.start():]
+                  return name, version
+
+              # Last resort: keep as-is
+              return stem, version_number
 
           resolved = []
           for slug in config["mods"]:
@@ -60,13 +89,19 @@ jobs:
                   latest["files"][0]
               )
 
+              name, version = split_filename(
+                  primary["filename"], latest["version_number"]
+              )
+
               resolved.append({
-                  "name": slug,
+                  "name": name,
                   "type": "mod",
                   "url": primary["url"],
-                  "version": latest["version_number"]
+                  "version": version
               })
-              print(f"Resolved {slug} -> {latest['version_number']}")
+              print(f"Resolved {slug}:")
+              print(f"  filename: {primary['filename']}")
+              print(f"  -> name={name!r}, version={version!r}")
 
           with open('/tmp/resolved_mods.json', 'w') as f:
               json.dump(resolved, f, indent=2)
