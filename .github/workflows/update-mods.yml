@@ -1,0 +1,105 @@
+name: Update Mods in Schema
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+    paths:
+      - 'mods-config.json'
+
+permissions:
+  contents: write
+
+jobs:
+  update-mods:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Resolve mod versions from Modrinth
+        run: |
+          python3 << 'EOF'
+          import json, urllib.request, urllib.parse
+
+          with open('mods-config.json') as f:
+              config = json.load(f)
+
+          game_version = config["game_version"]
+          loader = config["loader"]
+
+          resolved = []
+          for slug in config["mods"]:
+              params = urllib.parse.urlencode({
+                  "loaders": json.dumps([loader]),
+                  "game_versions": json.dumps([game_version])
+              })
+              url = f"https://api.modrinth.com/v2/project/{slug}/version?{params}"
+
+              try:
+                  req = urllib.request.Request(url, headers={
+                      "User-Agent": "sms-schema-workflow/1.0"
+                  })
+                  with urllib.request.urlopen(req, timeout=30) as resp:
+                      versions = json.load(resp)
+              except Exception as e:
+                  print(f"WARNING: Failed to fetch {slug}: {e}")
+                  continue
+
+              releases = [v for v in versions if v.get("version_type") == "release"]
+              if not releases:
+                  print(f"WARNING: No release found for {slug} on {game_version}/{loader}")
+                  continue
+
+              latest = releases[0]
+              primary = next(
+                  (f for f in latest["files"] if f.get("primary")),
+                  latest["files"][0]
+              )
+              resolved.append({
+                  "url": primary["url"],
+                  "name": latest["name"],
+                  "version": latest["version_number"],
+                  "type": "mod"
+              })
+              print(f"Resolved {slug} -> {latest['version_number']}")
+
+          with open('/tmp/resolved_mods.json', 'w') as f:
+              json.dump(resolved, f, indent=2)
+          EOF
+
+      - name: Merge mod entries into schema
+        run: |
+          python3 << 'EOF'
+          import json, os
+
+          schema = {"sync_version": 3, "sync": []}
+          if os.path.exists('sms-schema.json'):
+              with open('sms-schema.json') as f:
+                  schema = json.load(f)
+
+          # Preserve every non-mod entry (i.e. resource packs)
+          preserved = [e for e in schema["sync"] if e.get("type") != "mod"]
+
+          with open('/tmp/resolved_mods.json') as f:
+              mod_entries = json.load(f)
+
+          schema["sync"] = sorted(
+              preserved + mod_entries,
+              key=lambda e: e["name"].lower()
+          )
+
+          with open('sms-schema.json', 'w') as f:
+              json.dump(schema, f, indent=2)
+
+          print(f"Schema: {len(mod_entries)} mod(s), {len(preserved)} pack(s) preserved.")
+          for m in mod_entries:
+              print(f"  - {m['name']} ({m['version']})")
+          EOF
+
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add sms-schema.json
+          git commit -m "Update mods in SMS schema" || echo "No changes to commit"
+          git push

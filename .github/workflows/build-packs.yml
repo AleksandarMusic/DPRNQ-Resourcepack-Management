@@ -1,68 +1,63 @@
-name: Build Packs and Generate SMS Schema
+name: Build Packs and Update Schema
 
 on:
   push:
     branches: [ main ]
+    paths:
+      - 'uncompressed-packs/**'
 
 permissions:
   contents: write
 
 jobs:
-  build-and-schema:
+  build-packs:
     runs-on: ubuntu-latest
-
     steps:
-      # 1. Full checkout so we can diff against the pre-push commit
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      # 2. Work out which pack folders actually changed
       - name: Detect changed packs
         run: |
           BEFORE="${{ github.event.before }}"
-
           if [ "$BEFORE" = "0000000000000000000000000000000000000000" ] \
              || ! git rev-parse "$BEFORE" >/dev/null 2>&1; then
-            echo "Cannot diff against previous commit; treating all packs as changed."
             mapfile -t CHANGED < <(ls uncompressed-packs/ 2>/dev/null)
           else
             mapfile -t CHANGED < <(
               git diff --name-only "$BEFORE" HEAD -- uncompressed-packs/ \
-                | awk -F/ 'NF > 1 {print $2}' \
-                | sort -u
+                | awk -F/ 'NF > 1 {print $2}' | sort -u
             )
           fi
-
           printf '%s\n' "${CHANGED[@]}" > /tmp/changed_packs.txt
-          echo "Changed packs:"
           cat /tmp/changed_packs.txt
 
-      # 3. Rebuild only the zips whose source folder changed
       - name: Zip changed packs
         run: |
           mkdir -p resourcepacks
-
           while IFS= read -r raw_name; do
             [ -z "$raw_name" ] && continue
             [ -d "uncompressed-packs/$raw_name" ] || continue
-
             sanitized="${raw_name// /_}"
-            echo "Zipping $raw_name -> $sanitized.zip"
-            (cd "uncompressed-packs/$raw_name" && zip -FSr "../../resourcepacks/$sanitized.zip" .)
+            rm -f "resourcepacks/$sanitized.zip"
+            (cd "uncompressed-packs/$raw_name" && zip -r "../../resourcepacks/$sanitized.zip" .)
           done < /tmp/changed_packs.txt
-
-          echo "Current zips:"
           ls -la resourcepacks/
 
-      # 4. Regenerate the schema (always runs; hashes are deterministic)
-      - name: Generate SMS schema
+      - name: Merge pack entries into schema
         run: |
           python3 << 'EOF'
-          import hashlib, json, os
+          import json, os, hashlib
 
           REPO = "${{ github.repository }}"
+
+          schema = {"sync_version": 3, "sync": []}
+          if os.path.exists('sms-schema.json'):
+              with open('sms-schema.json') as f:
+                  schema = json.load(f)
+
+          # Preserve every non-resourcepack entry (i.e. mods)
+          preserved = [e for e in schema["sync"] if e.get("type") != "resourcepack"]
 
           def short_hash(path, length=8):
               h = hashlib.sha256()
@@ -71,35 +66,32 @@ jobs:
                       h.update(chunk)
               return h.hexdigest()[:length]
 
-          packs = []
+          pack_entries = []
           for filename in sorted(os.listdir('resourcepacks')):
               if not filename.endswith('.zip'):
                   continue
               pack_name = filename[:-4]
               display_name = pack_name.replace('_', ' ')
               version = short_hash(os.path.join('resourcepacks', filename))
-              packs.append({
+              pack_entries.append({
                   "url": f"https://raw.githubusercontent.com/{REPO}/main/resourcepacks/{filename}",
                   "name": display_name,
                   "version": version,
                   "type": "resourcepack"
               })
 
-          schema = {
-              "sync_version": 3,
-              "sync": packs
-          }
+          schema["sync"] = sorted(
+              preserved + pack_entries,
+              key=lambda e: e["name"].lower()
+          )
 
           with open('sms-schema.json', 'w') as f:
               json.dump(schema, f, indent=2)
 
-          print(f"Generated schema with {len(packs)} pack(s).")
-          for p in packs:
-              print(f"  - {p['name']}  version={p['version']}")
+          print(f"Schema: {len(pack_entries)} pack(s), {len(preserved)} mod(s) preserved.")
           EOF
 
-      # 5. Commit the new zips and schema
-      - name: Commit and push
+      - name: Commit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
