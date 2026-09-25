@@ -19,7 +19,7 @@ jobs:
       - name: Resolve mod versions from Modrinth
         run: |
           python3 << 'EOF'
-          import json, urllib.request, urllib.parse, re
+          import json, urllib.request, urllib.parse
 
           with open('mods-config.json') as f:
               config = json.load(f)
@@ -35,10 +35,6 @@ jobs:
                   return json.load(resp)
 
           def split_filename(filename, version_number):
-              """
-              Split a Modrinth filename into (name, version) such that
-              f"{name}-{version}" reproduces the original filename stem.
-              """
               for ext in ('.jar', '.zip'):
                   if filename.endswith(ext):
                       stem = filename[:-len(ext)]
@@ -46,21 +42,19 @@ jobs:
               else:
                   stem = filename
 
-              # Preferred: split where version_number appears
               idx = stem.find(version_number)
               if idx > 0:
                   name = stem[:idx].rstrip('-_ .')
                   version = stem[idx:]
                   return name, version
 
-              # Fallback: split at first digit
+              import re
               match = re.search(r'\d', stem)
               if match and match.start() > 0:
                   name = stem[:match.start()].rstrip('-_ .')
                   version = stem[match.start():]
                   return name, version
 
-              # Last resort: keep as-is
               return stem, version_number
 
           resolved = []
@@ -99,42 +93,104 @@ jobs:
                   "url": primary["url"],
                   "version": version
               })
-              print(f"Resolved {slug}:")
-              print(f"  filename: {primary['filename']}")
-              print(f"  -> name={name!r}, version={version!r}")
+              print(f"Resolved {slug}: name={name!r}, version={version!r}")
 
           with open('/tmp/resolved_mods.json', 'w') as f:
               json.dump(resolved, f, indent=2)
           print(f"\nTotal resolved: {len(resolved)}")
           EOF
 
-      - name: Merge mod entries into schema
+      - name: Merge mod entries into schema with cleanup rules
         run: |
           python3 << 'EOF'
-          import json, os
+          import json, os, re
 
-          schema = {"sync_version": 3, "sync": []}
+          # --- Load previous schema (before we overwrite it) ---
+          prev_schema = {"sync": [], "modify": []}
           if os.path.exists('sms-schema.json'):
               with open('sms-schema.json') as f:
-                  schema = json.load(f)
+                  prev_schema = json.load(f)
 
-          # Preserve every non-mod entry (i.e. resource packs)
-          preserved = [e for e in schema["sync"] if e.get("type") != "mod"]
-
+          # --- Load newly resolved mods ---
           with open('/tmp/resolved_mods.json') as f:
-              mod_entries = json.load(f)
+              resolved = json.load(f)
 
-          schema["sync"] = sorted(
-              preserved + mod_entries,
-              key=lambda e: e["name"].lower()
-          )
+          def project_id_from_url(url):
+              """Extract Modrinth project ID from a CDN URL."""
+              m = re.search(r'/data/([^/]+)/', url)
+              return m.group(1) if m else None
+
+          # --- Build a map of previous mod entries by project ID ---
+          prev_mods_by_id = {}
+          for entry in prev_schema.get("sync", []):
+              if entry.get("type") != "mod":
+                  continue
+              pid = project_id_from_url(entry["url"])
+              if pid:
+                  prev_mods_by_id[pid] = entry
+
+          # --- Preserve non-mod entries (resource packs, shaders, etc.) ---
+          preserved = [e for e in prev_schema.get("sync", [])
+                       if e.get("type") != "mod"]
+
+          # --- Generate remove rules for outdated or removed mods ---
+          remove_rules = []
+          resolved_ids = set()
+
+          for mod in resolved:
+              pid = project_id_from_url(mod["url"])
+              if not pid:
+                  continue
+              resolved_ids.add(pid)
+
+              old = prev_mods_by_id.get(pid)
+              if not old:
+                  continue  # new mod, nothing to remove
+
+              old_filename = f"{old['name']}-{old['version']}.jar"
+              new_filename = f"{mod['name']}-{mod['version']}.jar"
+
+              if old_filename != new_filename:
+                  remove_rules.append({
+                      "type": "remove",
+                      "pattern": f"^mods/{re.escape(old_filename)}$",
+                      "path": "."
+                  })
+                  print(f"Cleanup: {old_filename} -> {new_filename}")
+
+          # --- Handle mods removed from config entirely ---
+          for pid, old in prev_mods_by_id.items():
+              if pid not in resolved_ids:
+                  old_filename = f"{old['name']}-{old['version']}.jar"
+                  remove_rules.append({
+                      "type": "remove",
+                      "pattern": f"^mods/{re.escape(old_filename)}$",
+                      "path": "."
+                  })
+                  print(f"Cleanup (removed mod): {old_filename}")
+
+          # --- Preserve existing non-mod modify rules ---
+          existing_modify = prev_schema.get("modify", [])
+          other_rules = [
+              r for r in existing_modify
+              if not (r.get("type") == "remove"
+                      and r.get("pattern", "").startswith("^mods/"))
+          ]
+
+          # --- Build the new schema ---
+          schema = {
+              "sync_version": 3,
+              "sync": sorted(preserved + resolved,
+                             key=lambda e: e["name"].lower()),
+              "modify": other_rules + remove_rules
+          }
 
           with open('sms-schema.json', 'w') as f:
               json.dump(schema, f, indent=2)
 
-          print(f"Schema: {len(mod_entries)} mod(s), {len(preserved)} pack(s) preserved.")
-          for m in mod_entries:
-              print(f"  - {m['name']} ({m['version']})")
+          print(f"\nSchema: {len(resolved)} mod(s), {len(preserved)} preserved entry/entries.")
+          if remove_rules:
+              print(f"Added {len(remove_rules)} cleanup rule(s).")
           EOF
 
       - name: Commit
@@ -142,5 +198,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add sms-schema.json
-          git commit -m "Update mods in SMS schema" || echo "No changes to commit"
+          git commit -m "Update mods in SMS schema (with cleanup)" || echo "No changes to commit"
           git push
