@@ -2,18 +2,6 @@
   "sync_version": 3,
   "sync": [
     {
-      "name": "continuity",
-      "type": "mod",
-      "url": "https://cdn.modrinth.com/data/1IjD5062/versions/mgUN5Xz2/continuity-3.0.1%2B26.2.jar",
-      "version": "3.0.1+26.2"
-    },
-    {
-      "name": "DistantHorizons",
-      "type": "mod",
-      "url": "https://cdn.modrinth.com/data/uCdwusMi/versions/9NoftEde/DistantHorizons-3.3.2-26.2-fabric-neoforge.jar",
-      "version": "3.3.2-26.2-fabric-neoforge"
-    },
-    {
       "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/resourcepacks/DPRNQ-Sound-Pack.zip",
       "name": "DPRNQ-Sound-Pack",
       "version": "7e1ae8ff",
@@ -30,12 +18,6 @@
       "name": "Invisible Armor Model",
       "version": "e3c77f8d",
       "type": "resourcepack"
-    },
-    {
-      "name": "sodium-fabric",
-      "type": "mod",
-      "url": "https://cdn.modrinth.com/data/AANobbMI/versions/xJZxADzI/sodium-fabric-0.9.2%2Bmc26.2.jar",
-      "version": "0.9.2+mc26.2"
     }
   ]
 }
