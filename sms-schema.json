@@ -26,12 +26,6 @@
       "type": "resourcepack"
     },
     {
-      "name": "fabric-api",
-      "type": "mod",
-      "url": "https://cdn.modrinth.com/data/P7dR8mSH/versions/ewUK83HI/fabric-api-0.161.0%2B26.2.jar",
-      "version": "0.161.0+26.2"
-    },
-    {
       "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/resourcepacks/Invisible_Armor_Model.zip",
       "name": "Invisible Armor Model",
       "version": "e3c77f8d",
