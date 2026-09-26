@@ -1,0 +1,11 @@
+{
+  "sync_version": 3,
+  "sync": [
+    {
+      "name": "sodium-fabric",
+      "type": "mod",
+      "url": "https://cdn.modrinth.com/data/AANobbMI/versions/xJZxADzI/sodium-fabric-0.9.2%2Bmc26.2.jar",
+      "version": "0.9.2+mc26.2"
+    }
+  ]
+}
