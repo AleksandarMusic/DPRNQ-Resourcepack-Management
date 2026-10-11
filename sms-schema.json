@@ -4,14 +4,14 @@
     {
       "name": "continuity",
       "type": "mod",
-      "url": "https://cdn.modrinth.com/data/1IjD5062/versions/mgUN5Xz2/continuity-3.0.1%2B26.2.jar",
-      "version": "3.0.1+26.2"
+      "url": "https://cdn.modrinth.com/data/1IjD5062/versions/Jt2sCWTQ/continuity-3.0.1%2B26.3.jar",
+      "version": "3.0.1+26.3"
     },
     {
       "name": "DistantHorizons",
       "type": "mod",
-      "url": "https://cdn.modrinth.com/data/uCdwusMi/versions/aAow4a9f/DistantHorizons-3.3.3-26.2-fabric-neoforge.jar",
-      "version": "3.3.3-26.2-fabric-neoforge"
+      "url": "https://cdn.modrinth.com/data/uCdwusMi/versions/TGgEbP9A/DistantHorizons-3.3.4-26.3-fabric-neoforge.jar",
+      "version": "3.3.4-26.3-fabric-neoforge"
     },
     {
       "url": "https://raw.githubusercontent.com/AleksandarMusic/DPRNQ-Resourcepack-Management/main/resourcepacks/DPRNQ-Sound-Pack.zip",
@@ -34,8 +34,8 @@
     {
       "name": "sodium-fabric",
       "type": "mod",
-      "url": "https://cdn.modrinth.com/data/AANobbMI/versions/xJZxADzI/sodium-fabric-0.9.2%2Bmc26.2.jar",
-      "version": "0.9.2+mc26.2"
+      "url": "https://cdn.modrinth.com/data/AANobbMI/versions/bAZQdGpg/sodium-fabric-0.9.2%2Bmc26.3.jar",
+      "version": "0.9.2+mc26.3"
     }
   ]
 }
